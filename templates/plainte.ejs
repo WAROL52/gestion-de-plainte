@@ -1,0 +1,68 @@
+<%- include('partials/header.ejs'); -%>
+    <%- include('components/nav.ejs',{ActivePlainte:"active"});-%>
+        <script src="/js-datepicker/dist/datepicker.min.js"></script>
+        <link rel="stylesheet" href="/js-datepicker/dist/datepicker.min.css">
+        <style>
+            .my-carousel-progress {
+                background: #ccc;
+            }
+
+
+            .my-carousel-progress-bar {
+                background: rgb(47, 50, 255);
+                height: 10px;
+                transition: width 400ms ease;
+                width: 0;
+            }
+
+            .plainte-pagination {
+                transform: translate(0, 25px);
+            }
+        </style>
+        <div class="container my-3 p-3 shadow text-bg-warning">
+            <form id="form-plainte" action="/plainte" method="post">
+                <section class="splide shadow p-0  rounded" aria-label="Splide Basic HTML Example">
+                    <div class="splide__track ">
+                        <ul class="splide__list">
+                            <li class="splide__slide container p-0">
+                                <%- include('components/plainteFormStep1.ejs');-%>
+                            </li>
+                            <li class="splide__slide container p-0">
+                                <%- include('components/plainteFormStep2.ejs');-%>
+                            </li>
+                            <li class="splide__slide container p-0">
+                                <%- include('components/plainteFormStep3.ejs');-%>
+                            </li>
+                            <li class="splide__slide container p-0">
+                                <%- include('components/plainteFormStep4.ejs');-%>
+                            </li>
+                            <li class="splide__slide container p-0">
+                                <%- include('components/plainteFormStep5.ejs');-%>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="my-carousel-progress ">
+                        <div class="my-carousel-progress-bar"></div>
+                    </div>
+                </section>
+                <div class="container my-4 text-end">
+                    <button id="prev" class="btn btn-light  shadow px-4">
+                        <span class="icon text-dark-50 mr-2">
+                            <i class="fas fa-arrow-left"></i>
+                        </span>
+                        <span class="text">Précédant</span>
+                    </button>
+                    <button id="next" class="btn btn-light  shadow px-4">
+                        <span class="text">Suivant</span>
+                        <span class="icon text-dark-50 ml-2">
+                            <i class="fas fa-arrow-right"></i>
+                        </span>
+                    </button>
+                </div>
+                <div class="text-center"> <button type="submit" id="btnsend" class="btn btn-primary shadow px-5"
+                        role="button">Envoyer </button>
+                </div>
+            </form>
+        </div>
+        <script src="/js/plainte.js" defer></script>
+        <%- include('partials/footer.ejs'); -%>

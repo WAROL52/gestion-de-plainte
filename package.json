@@ -1,0 +1,27 @@
+{
+  "name": "gestion_de_plainte",
+  "type": "module",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "WAROL52",
+  "license": "MIT",
+  "dependencies": {
+    "@fastify/formbody": "^7.3.0",
+    "@fastify/secure-session": "^5.2.0",
+    "@fastify/static": "^6.5.1",
+    "@fastify/view": "^7.3.0",
+    "alpinejs": "^3.10.5",
+    "bcrypt": "^5.1.0",
+    "bootstrap": "5.2.3",
+    "ejs": "^3.1.8",
+    "fastify": "^4.10.2",
+    "js-datepicker": "^5.18.2",
+    "node-sass": "^8.0.0",
+    "nodemailer": "^6.8.0",
+    "sass": "^1.56.1",
+    "sequelize": "^6.25.8"
+  },
+  "devDependencies": {
+    "mysql2": "^2.3.3"
+  }
+}

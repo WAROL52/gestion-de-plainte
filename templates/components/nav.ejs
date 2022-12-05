@@ -1,0 +1,92 @@
+<!-- Topbar -->
+<nav class="navbar navbar-expand navbar-light bg-white topbar border-bottom static-top ">
+
+    <!-- Sidebar Toggle (Topbar) -->
+    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+        <i class="fa fa-bars"></i>
+    </button>
+
+    <!-- Topbar Search -->
+    <div class="d-flex mx-3 flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0  text-decoration-none">
+            <img src="/images/logo.png" width="40px" alt="" srcset="">
+        </a>
+    </div>
+    <ul id="menu-nav-1" class="nav bg-transparent px-2 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="/" class="btn btn-light px-2 <%= locals.ActiveAccueil %>  ">Accueil</a></li>
+        <li><a href="/plainte" class="btn btn-light btn px-2 <%= locals.ActivePlainte %>">Deposer une Plainte</a></li>
+        <li>
+            <a href="https://www.parcs-madagascar.com/" target="_blank" type="button" class="btn btn-light">
+                Site
+                officiel
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                    class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd"
+                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z">
+                    </path>
+                    <path fill-rule="evenodd"
+                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z">
+                    </path>
+                </svg>
+
+            </a>
+        </li>
+    </ul>
+    <!-- Topbar Navbar -->
+    <%- include("menuProfileUser.ejs") %>
+</nav>
+<!-- End of Topbar -->
+<ul id="menu-nav-2" class="nav bg-transparent border-bottom px-2 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+    <li><a href="/" class="btn btn-light px-2 <%= locals.ActiveAccueil %>  ">Accueil</a></li>
+    <li><a href="/plainte" class="btn btn-light btn px-2 <%= locals.ActivePlainte %>">Deposer une Plainte</a></li>
+    <li>
+        <a href="https://www.parcs-madagascar.com/" target="_blank" type="button" class="btn btn-light">
+            Site
+            officiel
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
+                <path fill-rule="evenodd"
+                    d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z">
+                </path>
+                <path fill-rule="evenodd"
+                    d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z">
+                </path>
+            </svg>
+
+        </a>
+    </li>
+</ul>
+<% if (locals.user) { %>
+    <!-- Logout Modal-->
+    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="/logout">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>
+<% } %>
+<script>
+    function resizeMenu() {
+        if (window.innerWidth > 800) {
+            document.querySelector('#menu-nav-1').hidden = false
+            document.querySelector('#menu-nav-2').hidden = true
+        } else {
+            document.querySelector('#menu-nav-1').hidden = true
+            document.querySelector('#menu-nav-2').hidden = false
+        }
+    }
+    resizeMenu()
+    window.onresize = resizeMenu
+</script>

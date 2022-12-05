@@ -1,0 +1,80 @@
+<%- include('partials/header.ejs'); -%>
+    <%- include('components/nav.ejs',{ActiveAccueils:"active"});-%>
+        <div class="container">
+            <div class="card o-hidden border-0 shadow-lg my-5">
+                <div class="card-body p-0">
+                    <!-- Nested Row within Card Body -->
+                    <div class="row">
+                        <div class="col-lg-5 d-none d-lg-block text-bg-warning">
+                            <img src="/images/belou.png" width="100%" alt="" srcset="">
+                        </div>
+                        <div class="col-lg-7">
+                            <div class="p-5">
+                                <div class="text-center">
+                                    <h1 class="h4 text-gray-900 mb-4">
+                                        Créer un compte!</h1>
+                                </div>
+                                <form class="user needs-validation <% if(locals.formBody){ %> was-validated  <% } %> " action="/register" method="post">
+                                    <div class="form-group row">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="text" minlength="2" required name="nom"
+                                                class="form-control form-control-user" id="exampleFirstName"
+                                                placeholder="Nom" <% if(locals.formBody){ %> value=<%= formBody.nom %>  <% } %>  >
+                                            
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="text" minlength="2" required name="prenom" 
+                                            <% if(locals.formBody){ %> value=<%= formBody.prenom %>  <% } %> 
+                                                class="form-control form-control-user" id="exampleLastName"
+                                                 placeholder="Prenom">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" required name="email"
+                                        <% if(locals.formBody){ %> value=<%= formBody.email %>  <% } %> 
+                                            class="form-control form-control-user" id="exampleInputEmail"
+                                            placeholder="Adresse e-mail">
+                                    </div>
+                                    <div class="form-group row" x-data="{motdepasse1:'',motdepasse2:''}">
+                                        <div class="col-sm-6 mb-3 mb-sm-0">
+                                            <input type="password" required name="motdepasse1" minlength="6"
+                                            @input="(e)=>motdepasse1=e.target.value"
+                                            <% if(locals.formBody){ %> value=<%= formBody.motdepasse1 %>  <% } %> 
+                                                class="form-control form-control-user"
+                                                id="exampleInputPassword" placeholder="Mot de passe">
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <input type="password" name="motdepasse2" required minlength="6"
+                                            @input="(e)=>motdepasse2=e.target.value"
+                                            <% if(locals.formBody){ %> value=<%= formBody.motdepasse2 %>  <% } %>
+                                                class="form-control form-control-user is-invalid" id="exampleRepeatPassword"
+                                                :class="{'is-invalid':motdepasse1!=motdepasse2}"
+                                                value="" placeholder="Répéter le mot de passe">
+                                                <div class="invalid-feedback">
+                                                    mots de passe ne correspondent pas
+                                                </div>
+                                        </div>
+                                    </div>
+                                    <input type="submit" class="btn btn-primary btn-user btn-block"
+                                        value="Créer un compte">
+                                    <hr>
+                                    <a href="#" class="btn btn-google btn-user btn-block">
+                                        <i class="fab fa-google fa-fw"></i>
+                                        S'inscrire avec un compte Google
+                                    </a>
+                                </form>
+                                <hr>
+                                <div class="text-center">
+                                    <a class="small" href="/forgot-password">Mot de passe oublié?</a>
+                                </div>
+                                <div class="text-center">
+                                    <a class="small" href="/login">Vous avez déjà un compte? Connexion!</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <%- include('partials/footer.ejs'); -%>
