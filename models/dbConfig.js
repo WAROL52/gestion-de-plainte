@@ -1,6 +1,6 @@
 import { DataTypes, Sequelize } from "sequelize";
 import { UserFactory } from "./userFactory.js";
-import path, { dirname } from "path";
+import path, { dirname,join } from "path";
 import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url)); 
 // Option 3: Passing parameters separately (other dialects)
@@ -10,9 +10,10 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 //     "mysql" /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */,
 // });
 console.log(__dirname);
+
 const sequelize = new Sequelize({
   dialect: 'sqlite',
-  storage: __dirname+'\\database.sqlite3'
+  storage: join(__dirname,'database.sqlite3')
 });
 try {
   await sequelize.authenticate();
