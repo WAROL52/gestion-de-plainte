@@ -13,29 +13,7 @@
         </a>
     </div>
     <ul id="menu-nav-1" class="nav bg-transparent px-2 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-        <li><a href="/" class="btn btn-light px-2 <%= locals.ActiveAccueil %>  ">Accueil</a></li>
-        <li><a href="/plainte" class="btn btn-light btn px-2 <%= locals.ActivePlainte %>">Deposer une Plainte</a></li>
-        <li><a href="/progression-plainte" class="btn btn-light btn px-2 <%= locals.ActiveProgressionPlainte %>">Progression des
-                Plaintes</a></li>
-        <li>
-            <a href="https://www.parcs-madagascar.com/" target="_blank" type="button" class="btn btn-light">
-                Site
-                officiel
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                    class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                    <path fill-rule="evenodd"
-                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z">
-                    </path>
-                    <path fill-rule="evenodd"
-                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z">
-                    </path>
-                </svg>
-
-            </a>
-        </li>
-        <% if(locals.user) {%>
-            <li><a href="/publications" class="btn btn-light btn px-2 <%= locals.ActivePublications %>">Publications</a></li>
-            <% } %>
+        <%- include("navItems.ejs") %>
     </ul>
     <!-- Topbar Navbar -->
     <%- include("menuProfileUser.ejs") %>
@@ -43,24 +21,7 @@
 <!-- End of Topbar -->
 <ul id="menu-nav-2"
     class="nav bg-transparent border-bottom px-2 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-    <li><a href="/" class="btn btn-light px-2 <%= locals.ActiveAccueil %>  ">Accueil</a></li>
-    <li><a href="/plainte" class="btn btn-light btn px-2 <%= locals.ActivePlainte %>">Deposer une Plainte</a></li>
-    <li>
-        <a href="https://www.parcs-madagascar.com/" target="_blank" type="button" class="btn btn-light">
-            Site
-            officiel
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
-                <path fill-rule="evenodd"
-                    d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z">
-                </path>
-                <path fill-rule="evenodd"
-                    d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z">
-                </path>
-            </svg>
-
-        </a>
-    </li>
+    <%- include("navItems.ejs") %>
 </ul>
 <% if (locals.user) { %>
     <!-- Logout Modal-->

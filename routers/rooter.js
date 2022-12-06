@@ -1,4 +1,5 @@
 import { dashboardRoote } from "./dashboardRoute.js"
+import { plainteRoote } from "./plainteRoute.js"
 import { userRoote } from "./userRoute.js"
 
 
@@ -9,16 +10,11 @@ function home(fastify) {
         return reply.view("templates/index.ejs",{user})
     })
 }
-function plainte(fastify) {
-    fastify.get('/plainte',(request, reply) =>{
-        const user=request.session.get("user")
-        return reply.view("templates/plainte.ejs",{user})
-    })
-}
+
 const routes={
     home,
     userRoote,
-    plainte,
+    plainteRoote,
     dashboardRoote
 }
 

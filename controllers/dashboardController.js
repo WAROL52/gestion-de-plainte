@@ -22,26 +22,21 @@ export const NAV_ITEMS=[
         ]
     },
     {
-        titre:'Comité',
+        titre:'Utilisateurs',
         icon:"fas fa-w fa-user",
         liens:[
             {
                 titre:'Listes des membres:',
-                items:[,
+                items:[
                     {
-                        value:'Tout',
-                        href:pathRoute("/membre-de-comite/tout"),
+                        value:'membre de comité',
+                        href:pathRoute("/membre-de-comite"),
                         controller:'membreDeComite',
                     },
                     {
-                        value:'En ligne',
-                        href:pathRoute("/membre-de-comite/enligne"),
-                        controller:'membreDeComite',
-                    },
-                    {
-                        value:'Hors ligne',
-                        href:pathRoute("/membre-de-comite/hors-ligne"),
-                        controller:'membreDeComite',
+                        value:'En attente',
+                        href:pathRoute("/membre-de-comite/en-attente"),
+                        controller:'EnAttente',
                     },
                 ]
             }
@@ -139,8 +134,6 @@ export class Dashboard {
         }
         return reply.redirect("/");
     }
-
-
     static async plaintes(request, reply) {
         const user=request.session.get("user")
         if(user){
@@ -151,6 +144,21 @@ export class Dashboard {
                 navActived:{
                     titre:'plaintes',
                     value:'Liste des plaintes'
+                }
+             });
+        }
+        return reply.redirect('/')
+    }
+    static async membreDeComite(request, reply) {
+        const user=request.session.get("user")
+        if(user){
+            return reply.view("templates/indexDashboard.ejs", { 
+                user,
+                path:"dashboardContent/membreDeComite.ejs",
+                NAV_ITEMS,
+                navActived:{
+                    titre:'Utilisateurs',
+                    value:'membre de comité'
                 }
              });
         }
