@@ -3,7 +3,7 @@ import { startRouter } from "./routers/rooter.js";
 import fastifyView from "@fastify/view";
 import fastifyStatic from "@fastify/static";
 import ejs from "ejs";
-import path, { dirname } from "path";
+import path, { dirname, join } from "path";
 import { fileURLToPath } from "url";
 import { dbModel, sequelize } from "./models/dbConfig.js";
 import fastifyFormBody from '@fastify/formbody'
@@ -17,14 +17,14 @@ const fastify = Fastify({
 fastify.register(dbModel)
 fastify.register(fastifyFormBody)
 fastify.register(fastifyStatic, {
-  root: __dirname + "\\public",
+  root: join (__dirname,"public"),
   prefix: "/", // optional: default '/'
 });
 fastify.register(fastifySecureSession, {
   // the name of the session cookie, defaults to 'session'
   cookieName: 'session',
   // adapt this to point to the directory where secret-key is located
-  key:readFileSync(__dirname+'\\secret-key'),
+  key:readFileSync(join(__dirname,'secret-key')),
   cookie: {
     path: '/'
     // options for setCookie, see https://github.com/fastify/fastify-cookie
