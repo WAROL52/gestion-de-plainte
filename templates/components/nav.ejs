@@ -15,6 +15,8 @@
     <ul id="menu-nav-1" class="nav bg-transparent px-2 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
         <li><a href="/" class="btn btn-light px-2 <%= locals.ActiveAccueil %>  ">Accueil</a></li>
         <li><a href="/plainte" class="btn btn-light btn px-2 <%= locals.ActivePlainte %>">Deposer une Plainte</a></li>
+        <li><a href="/progression-plainte" class="btn btn-light btn px-2 <%= locals.ActiveProgressionPlainte %>">Progression des
+                Plaintes</a></li>
         <li>
             <a href="https://www.parcs-madagascar.com/" target="_blank" type="button" class="btn btn-light">
                 Site
@@ -31,12 +33,16 @@
 
             </a>
         </li>
+        <% if(locals.user) {%>
+            <li><a href="/publications" class="btn btn-light btn px-2 <%= locals.ActivePublications %>">Publications</a></li>
+            <% } %>
     </ul>
     <!-- Topbar Navbar -->
     <%- include("menuProfileUser.ejs") %>
 </nav>
 <!-- End of Topbar -->
-<ul id="menu-nav-2" class="nav bg-transparent border-bottom px-2 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+<ul id="menu-nav-2"
+    class="nav bg-transparent border-bottom px-2 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
     <li><a href="/" class="btn btn-light px-2 <%= locals.ActiveAccueil %>  ">Accueil</a></li>
     <li><a href="/plainte" class="btn btn-light btn px-2 <%= locals.ActivePlainte %>">Deposer une Plainte</a></li>
     <li>
@@ -76,17 +82,17 @@
             </div>
         </div>
     </div>
-<% } %>
-<script>
-    function resizeMenu() {
-        if (window.innerWidth > 800) {
-            document.querySelector('#menu-nav-1').hidden = false
-            document.querySelector('#menu-nav-2').hidden = true
-        } else {
-            document.querySelector('#menu-nav-1').hidden = true
-            document.querySelector('#menu-nav-2').hidden = false
-        }
-    }
-    resizeMenu()
-    window.onresize = resizeMenu
-</script>
+    <% } %>
+        <script>
+            function resizeMenu() {
+                if (window.innerWidth > 800) {
+                    document.querySelector('#menu-nav-1').hidden = false
+                    document.querySelector('#menu-nav-2').hidden = true
+                } else {
+                    document.querySelector('#menu-nav-1').hidden = true
+                    document.querySelector('#menu-nav-2').hidden = false
+                }
+            }
+            resizeMenu()
+            window.onresize = resizeMenu
+        </script>

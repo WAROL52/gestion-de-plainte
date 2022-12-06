@@ -64,6 +64,10 @@ export class User {
     return reply.view("templates/index.ejs", { user: null });
   }
   static async profile(request, reply) {
-    return reply.view("templates/index.ejs", { user: null });
+    const user=request.session.get('user')
+    if(user){
+      return reply.view("templates/profileUser.ejs", { user });
+    }
+    return reply.redirect('/')
   }
 }

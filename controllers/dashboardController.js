@@ -22,6 +22,32 @@ export const NAV_ITEMS=[
         ]
     },
     {
+        titre:'Comité',
+        icon:"fas fa-w fa-user",
+        liens:[
+            {
+                titre:'Listes des membres:',
+                items:[,
+                    {
+                        value:'Tout',
+                        href:pathRoute("/membre-de-comite/tout"),
+                        controller:'membreDeComite',
+                    },
+                    {
+                        value:'En ligne',
+                        href:pathRoute("/membre-de-comite/enligne"),
+                        controller:'membreDeComite',
+                    },
+                    {
+                        value:'Hors ligne',
+                        href:pathRoute("/membre-de-comite/hors-ligne"),
+                        controller:'membreDeComite',
+                    },
+                ]
+            }
+        ]
+    },
+    {
         titre:'Messages',
         icon:"fas fa-envelope fa-fw",
         liens:[

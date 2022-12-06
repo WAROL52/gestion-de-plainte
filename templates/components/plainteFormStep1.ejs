@@ -14,6 +14,16 @@
     </div>
     <div class="row mb-4">
         <div class="col-md-6 col-sm-12">
+            <label for="exampleFormControlInput1" required class="form-label">Adresse</label>
+            <input type="text" class="form-control " id="exampleFormControlInput1" placeholder="Votre adresse...">
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <label for="exampleFormControlInput1" class="form-label">CIN</label>
+            <input type="text" pattern="[0-9]{12}" minlength="12" maxlength="12"  class="form-control " id="exampleFormControlInput1" placeholder="Votre prenom...">
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-md-6 col-sm-12">
             <label for="phone" class="form-label">Télephone</label><br>
             <input type="tet" id="phone" class="form-control input-phone">
         </div>
@@ -24,10 +34,9 @@
     </div>
 
     <div class="">
-        <h4>Type de plaignant : </h4>
+        <h6>Type de plaignant : </h6>
         <div class="container row">
             <div class="col-md-6 col-sm-12">
-                <label for="exampleDataList" class="form-label">Votre metier</label>
                 <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
                 <datalist id="datalistOptions">
                     <option value="Salarié">
