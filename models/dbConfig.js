@@ -1,13 +1,19 @@
 import { DataTypes, Sequelize } from "sequelize";
 import { UserFactory } from "./userFactory.js";
-
+import path, { dirname } from "path";
+import { fileURLToPath } from "url";
+const __dirname = dirname(fileURLToPath(import.meta.url)); 
 // Option 3: Passing parameters separately (other dialects)
-const sequelize = new Sequelize("gestion_de_plainte", "root", "", {
-  host: "localhost",
-  dialect:
-    "mysql" /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */,
+// const sequelize = new Sequelize("gestion_de_plainte", "root", "", {
+//   host: "localhost",
+//   dialect:
+//     "mysql" /* one of 'mysql' | 'postgres' | 'sqlite' | 'mariadb' | 'mssql' | 'db2' | 'snowflake' | 'oracle' */,
+// });
+console.log(__dirname);
+const sequelize = new Sequelize({
+  dialect: 'sqlite',
+  storage: __dirname+'\\database.sqlite3'
 });
-
 try {
   await sequelize.authenticate();
   console.log("Connection has been established successfully.");
