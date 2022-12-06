@@ -1,10 +1,6 @@
 import { DataTypes, Sequelize } from "sequelize";
 import { UserFactory } from "./userFactory.js";
-<<<<<<< HEAD
 import path, { dirname, join } from "path";
-=======
-import path, { dirname,join } from "path";
->>>>>>> ff447f05c592e02e44550928f55702a61c4f2c0c
 import { fileURLToPath } from "url";
 const __dirname = dirname(fileURLToPath(import.meta.url)); 
 // Option 3: Passing parameters separately (other dialects)
