@@ -1,5 +1,5 @@
 <%- include('partials/header.ejs'); -%>
-    <%- include('components/nav.ejs',{});-%>
+    <%- include('components/nav.ejs',locals.navActived);-%>
 
         <!-- Page Wrapper -->
         <div id="wrapper">
@@ -15,7 +15,7 @@
                     <div id="content">
 
                         <!-- Topbar -->
-                        <%- include('components/dashboard/Topbar.ejs'); -%>
+                        
                             <!-- End of Topbar -->
 
                             <!-- Begin Page Content -->
@@ -51,7 +51,7 @@
         <a class="scroll-to-top rounded" href="#page-top">
             <i class="fas fa-angle-up"></i>
         </a>
-
+        
         <!-- Bootstrap core JavaScript-->
         <script src="/vendor/jquery/jquery.min.js"></script>
         <script src="/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>

@@ -3,6 +3,7 @@ const pathRoute=(path="")=>"/dashboard"+path
 
 export function dashboardRoote(fastify,opt,done) {
     fastify.get('/user/dashboard',Dashboard.index)
+    fastify.get("/publications",Dashboard.publications)
     NAV_ITEMS.map(element=>{
         element.liens.map(lien=>{
             lien.items.map(item=>{

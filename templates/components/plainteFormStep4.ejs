@@ -1,49 +1,28 @@
 <div class="mb-3 shadow text-bg-light p-3 border rounded">
-    <h2>Motifs de la plainte </h2>
+    <h2>
+        <%= getContent("deposerPlainte.Motifs_de_la_plainte","Motifs de la plainte ") %>
+    </h2>
 </div>
-<div class="shadow text-bg-light p-3 border rounded overflow-auto" style="height:500px;">
-    <div class="container row">
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault0">
-            <label class="form-check-label" for="flexCheckDefault0">
-                1. Délai de traitement
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked1" >
-            <label class="form-check-label" for="flexCheckChecked1">
-                2. Politesse, courtoisie, tact
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2">
-            <label class="form-check-label" for="flexCheckDefault2">
-                3. Serviabilité, eoute, sens du service à la clientèle
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked3" >
-            <label class="form-check-label" for="flexCheckChecked3">
-                Exactitude, clarté et uniforme de l'information
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault4">
-            <label class="form-check-label" for="flexCheckDefault4">
-                suivi et retours d'appels
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked5" >
-            <label class="form-check-label" for="flexCheckChecked5">
-                Protection confidentialité et renseignement personnels
-            </label>
-        </div>
-        <div class="form-check">
-            <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked6" >
-            <label class="form-check-label" for="flexCheckChecked6">
-                Autre : <input type="text" class="form-controlle" >
-            </label>
-        </div>
-    </div>
-</div>
+<% const listMotifs=[
+    " Délai de traitement", "Politesse, courtoisie, tact" , "Serviabilité, eoute, sens du service à la clientèle"
+            , "Exactitude, clarté et uniforme de l'information" , "suivi et retours d'appels"
+            , "Protection confidentialité et renseignement personnels" ]; %>
+            <div class="shadow text-bg-light p-3 border rounded overflow-auto" style="height:500px;">
+
+                <div class="container row">
+                    <% listMotifs.forEach((motif,index)=> { %>
+                        <div class="form-check">
+                            <input class="form-check-input" name="motifs_de_la_plainte.<%=index %>" aria-valuemax="<%=  %> " type="checkbox" value="<%= motif  %> " id="flexCheckDefault<%= index+1 %>">
+                            <label class="form-check-label" for="flexCheckDefault<%= index+1 %>">
+                                <%= index+1 %> . <%= motif  %> 
+                            </label>
+                        </div>
+                        <% }); %>
+                            <div class="form-check">
+                                <input class="form-check-input" name="motifs_de_la_plainte.autre" type="checkbox" value="" id="flexCheckChecked6">
+                                <label class="form-check-label" for="flexCheckChecked6">
+                                    Autre : <input type="text" name="motifs_de_la_plainte.autre.value" class="form-controlle">
+                                </label>
+                            </div>
+                </div>
+            </div>

@@ -1,98 +1,121 @@
 <div class="mb-3 shadow text-bg-light p-3 border rounded">
-    <h3 class="text-center">Identité du plaingnant</h3>
+    <h3 class="text-center">
+        <%= getContent("deposerPlainte.Identité_du_plaingnant","Identité du plaingnant") %>
+    </h3>
 </div>
 <div class="shadow text-bg-light p-3 border rounded overflow-auto" style="height:500px;">
     <div class="row mb-4">
         <div class="col-md-6 col-sm-12">
-            <label for="exampleFormControlInput1" class="form-label">Nom</label>
-            <input type="text" class="form-control " id="exampleFormControlInput1" placeholder="Votre nom...">
+            <label for="exampleFormControlInput1" class="form-label">
+                <%= getContent("deposerPlainte.nom","Nom") %>
+            </label>
+            <input type="text" name="nom" class="form-control form-plainte" id="exampleFormControlInput1" placeholder=" <%= getContent(" deposerPlainte.nom.placeholder"," Votre nom...") %>">
         </div>
         <div class="col-md-6 col-sm-12">
-            <label for="exampleFormControlInput1" class="form-label">Prenom</label>
-            <input type="text" class="form-control " id="exampleFormControlInput1" placeholder="Votre prenom...">
-        </div>
-    </div>
-    <div class="row mb-4">
-        <div class="col-md-6 col-sm-12">
-            <label for="exampleFormControlInput1" required class="form-label">Adresse</label>
-            <input type="text" class="form-control " id="exampleFormControlInput1" placeholder="Votre adresse...">
-        </div>
-        <div class="col-md-6 col-sm-12">
-            <label for="exampleFormControlInput1" class="form-label">CIN</label>
-            <input type="text" pattern="[0-9]{12}" minlength="12" maxlength="12"  class="form-control " id="exampleFormControlInput1" placeholder="Votre prenom...">
+            <label for="exampleFormControlInput1" class="form-label">
+                <%= getContent("deposerPlainte.prenom","Prenom") %>
+            </label>
+            <input type="text" name="prenom" class="form-control form-plainte" id="exampleFormControlInput1" placeholder="<%= getContent("deposerPlainte.prenom.placeholder"," Votre prenom...") %>">
         </div>
     </div>
     <div class="row mb-4">
         <div class="col-md-6 col-sm-12">
-            <label for="phone" class="form-label">Télephone</label><br>
-            <input type="tet" id="phone" class="form-control input-phone">
+            <label for="exampleFormControlInput1" required class="form-label">
+                <%= getContent("deposerPlainte.Adresse","Adresse") %>
+            </label>
+            <input type="text" name="adresse" class="form-control form-plainte" id="exampleFormControlInput1" placeholder="<%= getContent("deposerPlainte.Adresse.placeholder","Votre adresse...") %>">
         </div>
         <div class="col-md-6 col-sm-12">
-            <label for="exampleFormControlInput1" class="form-label">Email</label>
-            <input type="email" class="form-control" placeholder="Votre e-mail..." aria-label="Server">
+            <label for="exampleFormControlInput1" class="form-label">
+                <%= getContent("deposerPlainte.CIN","CIN") %>
+            </label>
+            <input type="text" name="cin" minlength="12" maxlength="12" class="form-control form-plainte"
+                id="exampleFormControlInput1" placeholder="<%= getContent(" deposerPlainte.CIN.placeholder","Votre CIN...") %>">
+        </div>
+    </div>
+    <div class="row mb-4">
+        <div class="col-md-6 col-sm-12">
+            <label for="phone" class="form-label">
+                <%= getContent("deposerPlainte.Télephone","Télephone") %>
+            </label><br>
+            <input type="tel" name="tel1" id="phone" class="form-control input-phone">
+        </div>
+        <div class="col-md-6 col-sm-12">
+            <label for="exampleFormControlInput1" class="form-label">
+                <%= getContent("deposerPlainte.Email","Email") %>
+            </label>
+            <input type="email" name="email" class="form-control form-plainte" placeholder="<%= getContent(" deposerPlainte.Email.placeholder","Votre e-mail...") %>" aria-label="Server">
         </div>
     </div>
 
     <div class="">
-        <h6>Type de plaignant : </h6>
-        <div class="container row">
-            <div class="col-md-6 col-sm-12">
-                <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Type to search...">
-                <datalist id="datalistOptions">
-                    <option value="Salarié">
-                    <option value="Employeur (ou on représentant)">
-                    <option value="Travailleur autonome">
-                    <option value="Citoyen">
-                    <option value="Collaborateur de la CNT">
-                </datalist>
+        <h6>
+            <%= getContent("deposerPlainte.Type_de_plaignant","Type de plaignant : ") %>
+            </h6>
+        <div class=" container row">
+                <div class="col-md-6 col-sm-12">
+                    <input class="form-control form-plainte" name="type_de_plaignant" list="datalistOptions" id="exampleDataList"
+                        placeholder="<%= getContent(" deposerPlainte.Type_de_plaignant.placeholder","Type to search...")%>">
+                    <datalist id="datalistOptions">
+                        <option value="Salarié">
+                        <option value="Employeur (ou on représentant)">
+                        <option value="Travailleur autonome">
+                        <option value="Citoyen">
+                        <option value="Collaborateur de la CNT">
+                    </datalist>
+                </div>
+    </div>
+</div>
+<div class="">
+    <h4>
+        <%= getContent("deposerPlainte.Services_CNT_sollicité_par_le_plaignant","Services CNT sollicité par le plaignant") %>
+        <span class="text-secondary">
+            <%= getContent("deposerPlainte.Services_CNT_sollicité_par_le_plaignant.commentaire","(cochez plus d'un, s'il y a lieu)") %>
+            </span>:</h4>
+    <div class="container px-3">
+        <div class="row">
+            <div class="col">
+                <input  type="checkbox" value="PL PEC" required name="services_CNT_sollicite_par_le_plaignant.plpec" id="plpec">
+                <label for="plpec">PL PEC</label>
+            </div>
+            <div class="col">
+                <input type="checkbox" required name="services_CNT_sollicite_par_le_plaignant.pl124" id="pl124" value="PL 124">
+                <label for="pl124">PL 124</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="checkbox" required name="services_CNT_sollicite_par_le_plaignant.demande_renseignements" id="demande_renseignements" value="Demande de
+                renseignements">
+                <label for="demande_renseignements">Demande de
+                    renseignements</label>
+            </div>
+            <div class="col">
+                <input type="checkbox" required name="services_CNT_sollicite_par_le_plaignant.seance_information" id="seance_information" value="Séance d'information">
+                <label for="seance_information">Séance d'information</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="checkbox" required name="services_CNT_sollicite_par_le_plaignant.pl122" id="pl122" value="PL 122">
+                <label for="pl122">PL 122</label>
+            </div>
+            <div class="col">
+                <input type="checkbox" required name="services_CNT_sollicite_par_le_plaignant.plhp" id="plhp" value="PL HP">
+                <label for="plhp">PL HP</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input type="checkbox" required name="services_CNT_sollicite_par_le_plaignant.surveillance_loi" id="surveillance_loi" value="Surveillance de l'application de la
+                loi">
+                <label for="surveillance_loi">Surveillance de l'application de la
+                    loi</label>
+            </div>
+            <div class="col">
+                <input type="checkbox" required name="services_CNT_sollicite_par_le_plaignant.service_autre" id="service_autre" value="">
+                <label for="service_autre">Autre : <input name="services_CNT_sollicite_par_le_plaignant.autre" type="text"></label>
             </div>
         </div>
     </div>
-    <div class="">
-        <h4>Services CNT sollicité par le plaignant<span class="text-secondary">(cochez
-                plus d'un, s'il y a lieu)</span>:</h4>
-        <div class="container px-3">
-            <div class="row">
-                <div class="col">
-                    <input type="checkbox" required name="plpec" id="plpec" value="">
-                    <label for="plpec">PL PEC</label>
-                </div>
-                <div class="col">
-                    <input type="checkbox" required name="pl124" id="pl124" value="">
-                    <label for="pl124">PL 124</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input type="checkbox" required name="demande_renseignements" id="demande_renseignements" value="">
-                    <label for="demande_renseignements">Demande de
-                        renseignements</label>
-                </div>
-                <div class="col">
-                    <input type="checkbox" required name="seance_information" id="seance_information" value="">
-                    <label for="seance_information">Séance d'information</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input type="checkbox" required name="pl122" id="pl122" value="">
-                    <label for="pl122">PL 122</label>
-                </div>
-                <div class="col">
-                    <input type="checkbox" required name="plhp" id="plhp" value="">
-                    <label for="plhp">PL HP</label>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <input type="checkbox" required name="surveillance_loi" id="surveillance_loi" value="">
-                    <label for="surveillance_loi">Surveillance de l'application de la
-                        loi</label>
-                </div>
-                <div class="col">
-                    <input type="checkbox" required name="service_autre" id="service_autre" value="">
-                    <label for="service_autre">Autre : <input name="service_autre_input" type="text"></label>
-                </div>
-            </div>
-        </div>
-    </div>
+</div>

@@ -7,11 +7,11 @@ const salt = bcrypt.genSaltSync(10);
 export class User {
   static async register(request, reply) {
     if (request.method == "GET") {
-      return reply.view("templates/register.ejs", { user: null });
+      return reply.template("templates/register.ejs", { user: null });
     }
 
     if (request.body.motdepasse1 != request.body.motdepasse2) {
-      return reply.view("templates/register.ejs", {
+      return reply.template("templates/register.ejs", {
         msgInfo: JSON.stringify(request.body),
         formBody: request.body,
       });
@@ -43,12 +43,12 @@ export class User {
         request.session.set("user", user);
         return reply.redirect("/user/dashboard");
       }
-      return reply.view("templates/login.ejs", {
+      return reply.template("templates/login.ejs", {
         msgError:
           "L'adresse e-mail ou le mot de passe que vous avez entré n'est pas valide",
       });
     }
-    return reply.view("templates/login.ejs", { user: null });
+    return reply.template("templates/login.ejs", { user: null });
   }
   static async logout(request, reply) {
     request.session.delete();
@@ -58,15 +58,15 @@ export class User {
     if (request.method == "POST") {
       return reply.redirect("/login");
     }
-    return reply.view("templates/forgot-password.ejs", { user: null });
+    return reply.template("templates/forgot-password.ejs", { user: null });
   }
   static async settings(request, reply) {
-    return reply.view("templates/index.ejs", { user: null });
+    return reply.template("templates/index.ejs", { user: null });
   }
   static async profile(request, reply) {
     const user=request.session.get('user')
     if(user){
-      return reply.view("templates/profileUser.ejs", { user });
+      return reply.template("templates/profileUser.ejs", { user });
     }
     return reply.redirect('/')
   }

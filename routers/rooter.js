@@ -7,7 +7,7 @@ function home(fastify) {
     
     fastify.get('/',(request, reply) =>{
         const user=request.session.get("user")
-        return reply.view("templates/index.ejs",{user})
+        return reply.template("templates/index.ejs",{user})
     })
 }
 

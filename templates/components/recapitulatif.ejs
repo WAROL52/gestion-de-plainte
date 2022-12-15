@@ -1,0 +1,38 @@
+<% recapitulatifs.forEach(element=> {%>
+    <div class="row mb-3">
+        <h5 class="text-bg-secondary border rounded link">
+            <%= element.titre %>
+        </h5>
+        <% element.data.forEach(item=> { %>
+            <% if(typeof item.value=="object" ){ %>
+                <div>
+                    <span class="h6">
+                        <%= item.titre %>
+                    </span>
+                    <ul>
+                        <% item.value.forEach(val=>{ %>
+                            <li>
+                                <%= val %>
+                            </li>
+                            <% })%>
+                    </ul>
+                </div>
+                <% }else if(!item.value&&item.text) { %>
+                    <div>
+                        <span class="h6">
+                            <%= item.titre %>
+                        </span>
+                        <p class="px-3">
+                            <%= item.text %>
+                        </p>
+                    </div>
+                    <% }else{ %>
+                        <div>
+                            <span class="h6">
+                                <%= item.titre %>
+                            </span>
+                            <%= item.value %>
+                        </div>
+                        <% }}); %>
+    </div>
+    <% }); %>

@@ -20,21 +20,23 @@
 
     <% if(locals.NAV_ITEMS){%>
         <% NAV_ITEMS.forEach(element=> {%>
-            <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#<%= element.titre %>"
+            <li class="nav-item <% if (locals.navActived&& locals.navActived.titre==element.titre) { %>
+                active
+                <%  }  %>">
+                <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#<%= element.titre %>"
                     aria-expanded="true" aria-controls="<%= element.titre %>">
                     <i class="<%= element.icon %>"></i>
                     <span>
                         <%= element.titre %>
                     </span>
                 </a>
-                <div id="<%= element.titre %>" class="collapse
+                <div id="<%= element.titre %>" class="collapse 
                     <% if (locals.navActived&& locals.navActived.titre==element.titre) { %>
                         show
                         <%  }  %>
                     
-                    " aria-labelledby="headingTwo" data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
+                    " aria-labelledby="headingTwo" data-bs-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded ">
                         <% element.liens.forEach(lien=> { %>
                             <h6 class="collapse-header">
                                 <%= lien.titre %>
@@ -65,8 +67,8 @@
                     </div>
 
                     <!-- Nav Item - Pages Collapse Menu -->
-                    <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapsePages"
+                    <li class="nav-item ">
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#collapsePages"
                             aria-expanded="true" aria-controls="collapsePages">
                             <i class="fas fa-fw fa-percent"></i>
                             <span>Statistiques</span>
@@ -88,7 +90,7 @@
                         </div>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#admin"
+                        <a class="nav-link collapsed" href="#" data-bs-toggle="collapse" data-bs-target="#admin"
                             aria-expanded="true" aria-controls="admin">
                             <i class="fas fa-fw fa-cog"></i>
                             <span>Admin</span></a>

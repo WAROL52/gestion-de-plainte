@@ -9,11 +9,12 @@ import { dbModel, sequelize } from "./models/dbConfig.js";
 import fastifyFormBody from '@fastify/formbody'
 import fastifySecureSession from '@fastify/secure-session' 
 import { readFileSync } from "fs";
+import fastifyMultipart from "@fastify/multipart";
 const __dirname = dirname(fileURLToPath(import.meta.url)); 
 const fastify = Fastify({
-  logger: true,
+  // logger: true,
 }); 
-
+// fastify.register(fastifyMultipart)
 fastify.register(dbModel)
 fastify.register(fastifyFormBody)
 fastify.register(fastifyStatic, {
@@ -48,8 +49,9 @@ fastify.register(fastifyStatic, {
 fastify.register(fastifyView, {
   engine: {
     ejs,
+    async: true
   },
-});
+}); 
 
 fastify.register(startRouter);
 

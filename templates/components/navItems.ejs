@@ -1,11 +1,14 @@
-<li><a href="/" class="btn btn-light px-2 <%= locals.ActiveAccueil %>  ">Accueil</a></li>
-<li><a href="/plainte" class="btn btn-light btn px-2 <%= locals.ActivePlainte %>">Deposer une Plainte</a></li>
-<li><a href="/progression-plainte" class="btn btn-light btn px-2 <%= locals.ActiveProgressionPlainte %>">Progression des
-        Plaintes</a></li>
+<li><a href="/" class="btn btn-light px-2 <%= locals.ActiveAccueil %>  "> <%= getContent("nav.Accueil","Accueil") %></a></li>
+<li><a href="/plainte" class="btn btn-light btn px-2 <%= locals.ActivePlainte %>">
+    <%= getContent("nav.Deposer_une_Plainte","Deposer une Plainte") %>
+    </a></li>
+<li><a href="/progression-plainte" class="btn btn-light btn px-2 <%= locals.ActiveProgressionPlainte %>">
+    <%= getContent("nav.Progression_des_Plaintes","Progression des Plaintes") %>
+    </a></li>
 <li>
     <a href="https://www.parcs-madagascar.com/" target="_blank" type="button" class="btn btn-light">
-        Site
-        officiel
+        <%= getContent("nav.Site_officiel","Site officiel") %>
+        
         <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
             class="bi bi-box-arrow-up-right" viewBox="0 0 16 16">
             <path fill-rule="evenodd"
@@ -19,5 +22,7 @@
     </a>
 </li>
 <% if(locals.user) {%>
-    <li><a href="/publications" class="btn btn-light btn px-2 <%= locals.ActivePublications %>">Publications</a></li>
+    <li><a href="/publications" class="btn btn-light btn px-2 <%= locals.ActivePublications %>">
+        <%= getContent("nav.Publications","Publications") %>
+        </a></li>
     <% } %>

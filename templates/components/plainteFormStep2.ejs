@@ -1,15 +1,19 @@
 <div class="mb-3 shadow text-bg-light p-3 border rounded">
-    <h2>Réception de la plainte et dates importantes</h2>
+    <h2>
+        <%= getContent("deposerPlainte.Réception_de_la_plainte_et_dates_importantes","Réception de la plainte et dates importantes") %>
+        </h2>
 </div>
 <div class="shadow text-bg-light p-3 border rounded overflow-auto" style="height:500px;">
     <div class="row">
         <div class="col-md-4 col-sm-12">
             <section class="container">
-                <h5 class="py-2">Date de receptioin de la plainte</h5>
+                <h5 class="py-2">
+                    <%= getContent("deposerPlainte.Date_de_receptioin_de_la_plainte","Date de receptioin de la plainte") %>
+                    </h5>
                 <div class="row">
                     <div class="col">
                         <div class="input-group date" id="datepicker">
-                            <input type="text"  name="date_reception" class="form-control date_reception" />
+                            <input type="text"  name="date_de_reception_de_la_plainte" class="form-control date_reception" />
                             <span class="input-group-append">
                                 <span class="input-group-text bg-light d-block">
                                     <i class="fa fa-calendar"></i>
@@ -22,11 +26,13 @@
         </div>
         <div class="col-md-4 col-sm-12">
             <section class="container">
-                <h5 class="py-2">Date de la 1ere communication</h5>
+                <h5 class="py-2">
+                    <%= getContent("deposerPlainte.Date_de_la_1ere_communication","Date de la 1ere communication") %>
+                    </h5>
                 <div class="row">
                     <div class="col">
                         <div class="input-group date " id="datepicker">
-                            <input type="text" name="date_1er_communication" class="form-control date_1er_communication"  />
+                            <input type="text" name="date_de_la_1ere_communication" class="form-control date_1er_communication"  />
                             <span class="input-group-append">
                                 <span class="input-group-text bg-light d-block">
                                     <i class="fa fa-calendar"></i>
@@ -39,11 +45,13 @@
         </div>
         <div class="col-md-4 col-sm-12">
             <section class="container">
-                <h5 class="py-2">Date de fermeture</h5>
+                <h5 class="py-2">
+                    <%= getContent("deposerPlainte.Date_de_fermeture","Date de fermeture") %>
+                    </h5>
                 <div class="row">
                     <div class="col">
                         <div class="input-group date" id="datepicker">
-                            <input type="text"  name="date_fermeture" class="form-control date_fermeture" />
+                            <input type="text"  name="date_de_fermeture" class="form-control date_fermeture" />
                             <span class="input-group-append">
                                 <span class="input-group-text bg-light d-block">
                                     <i class="fa fa-calendar"></i>
@@ -57,19 +65,27 @@
     </div>
     <div class="row">
         <div class="col pl-4">
-            <h5> Mode de reception : </h5>
+            <h5> 
+                <%= getContent("deposerPlainte.Mode_de_reception.title","Mode de reception : ") %>
+                </h5>
             <div class="d-flex justify-content-around">
-                <div><input type="checkbox" name="mode_reception_telephone" id="mode_reception_telephone">
-                    <label for="mode_reception_telephone">Télephone</label>
+                <div><input type="checkbox" name="mode_de_reception.telephone" id="mode_reception_telephone">
+                    <label for="mode_reception_telephone">
+                        <%= getContent("deposerPlainte.Mode_de_reception.Télephone","Télephone") %>
+                        </label>
                 </div>
                 <div>
-                    <input type="checkbox" name="mode_reception_courier" id="mode_reception_courier">
-                    <label for="mode_reception_courier">Courier</label>
+                    <input type="checkbox" name="mode_de_reception.email" id="mode_reception_courier">
+                    <label for="mode_reception_courier">
+                        <%= getContent("deposerPlainte.Mode_de_reception.email","email") %>
+                        </label>
                 </div>
 
                 <div>
-                    <input type="checkbox" name="mode_reception_autre" id="mode_reception_autre">
-                    <label for="mode_reception_autre">Autre : <input type="text" name="mode_reception_autre_input"
+                    <input type="checkbox" name="mode_de_reception.autre" id="mode_reception_autre">
+                    <label for="mode_reception_autre">
+                        <%= getContent("deposerPlainte.Mode_de_reception.Autre","Autre : ") %>
+                        <input type="text" name="mode_reception_autre_input"
                             id="mode_reception_autre_input"> </label>
                 </div>
             </div>
@@ -77,8 +93,10 @@
     </div>
     <div class="row">
         <div class="col pl-4">
-            <h5>Nom et unité administrative du responsable du traitement de la plainte : </h5>
-            <textarea class="form-control" name="nom_et_unite" rows="8"></textarea>
+            <h5>
+                <%= getContent("deposerPlainte.Nom_et_unité_administrative_du_responsable_du_traitement_de_la_plainte","Nom et unité administrative du responsable du traitement de la plainte : ") %>
+            </h5>
+            <textarea class="form-control" name="nom_et_unite_administrative_du_responsable_du_traitement_de_la_plainte" rows="8"></textarea>
         </div>
     </div>
 </div>

@@ -1,22 +1,15 @@
 import { DataTypes } from "sequelize";
 
-export class UserFactory {
-  nom = {
+export class TypeDePlaignantModel {
+  typeName = {
     type: DataTypes.STRING,
     allowNull: false,
+    unique:true
   };
-  prenom = {
+  description = {
     type: DataTypes.STRING,
-    allowNull: false,
   };
-  email = {
-    type: DataTypes.STRING,
-    allowNull: false,
-  };
-  motdepasse = {
-    type: DataTypes.STRING,
-    allowNull: false,
-  };
+
   createdAt = {
     type: DataTypes.DATE,
     allowNull: true,

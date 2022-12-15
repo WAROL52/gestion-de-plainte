@@ -1,8 +1,8 @@
 <% if (locals.user) { %>
-    <ul class="navbar-nav ml-auto">
+    <ul class="navbar-nav ml-auto mr-md-5">
         <!-- Nav Item - Search Dropdown (Visible Only XS) -->
         <!-- <li class="nav-item dropdown no-arrow d-sm-none">
-            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown"
+            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-search fa-fw"></i>
             </a> -->
@@ -24,8 +24,8 @@
         </li> -->
 
         <!-- Nav Item - Alerts -->
-        <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-toggle="dropdown"
+        <li class="nav-item dropdown dropdown-center no-arrow ">
+            <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-bell fa-fw text-primary"></i>
                 <!-- Counter - Alerts -->
@@ -75,8 +75,8 @@
         </li>
 
         <!-- Nav Item - Messages -->
-        <li class="nav-item dropdown no-arrow mx-1">
-            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-toggle="dropdown"
+        <li class="nav-item dropdown dropdown-center no-arrow mr-md-5">
+            <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <i class="fas fa-envelope fa-fw text-primary"></i>
                 <!-- Counter - Messages -->
@@ -128,8 +128,8 @@
         <div class="topbar-divider d-none d-sm-block"></div>
 
         <!-- Nav Item - User Information -->
-        <li class="nav-item dropdown no-arrow">
-            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown"
+        <li class="nav-item dropdown no-arrow mx-3">
+            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">
                 <span class="mr-2 d-none d-lg-inline text-gray-600 small"> <%= user.nom %> <%= user.prenom %>  </span>
                 <img class="img-profile rounded-circle" src="/img/undraw_profile.svg">
@@ -138,20 +138,21 @@
             <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                 <a class="dropdown-item" href="/user/profile">
                     <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Profile
+                    <%= getContent("nav.menuUser.Profile","Profile") %>
+                    
                 </a>
                 <a class="dropdown-item" href="/user/dashboard">
                     <i class="fas fa-fw fa-tachometer-alt fa-sm mr-2 text-gray-400"></i>
-                    Dashboard
+                    <%= getContent("nav.menuUser.Dashboard","Dashboard") %>
                 </a>
                 <a class="dropdown-item" href="#">
                     <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Préférence
+                    <%= getContent("nav.menuUser.Préférence","Préférence") %>
                 </a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="/logout" data-toggle="modal" data-target="#logoutModal">
+                <a class="dropdown-item" href="/logout" data-bs-toggle="modal" data-target="#logoutModal">
                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
-                    Déconnexion
+                    <%= getContent("nav.menuUser.Déconnexion","Déconnexion") %>
                 </a>
             </div>
         </li>
@@ -159,7 +160,11 @@
 
     <% } else {%>
         <div class="col-md-3 text-end">
-            <a href="/login" type="button" class="btn btn-outline-primary me-2">Se connecter</a>
-            <a href="/register" type="button" class="btn btn-warning">S'inscrire</a>
+            <a href="/login" type="button" class="btn btn-outline-primary me-2">
+                <%= getContent("nav.btn.Se_connecter","Se connecter") %>
+                </a>
+            <a href="/register" type="button" class="btn btn-warning">
+                <%= getContent("nav.btn.Sinscrire","S'inscrire") %>
+                </a>
           </div>
         <% } %>

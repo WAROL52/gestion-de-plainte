@@ -50,35 +50,35 @@ export const NAV_ITEMS=[
                 titre:'listes des messages:',
                 items:[
                     {
-                        value:'Tous les messages',
+                        value:'Inbox',
                         href:pathRoute("/messages"),
-                        controller:'messages'
+                        controller:'inboxMessage'
                     },
                     {
-                        value:'Messages lus',
-                        href:pathRoute("/messages-lus"),
-                        controller:'messagesLus'
-                    },
-                    {
-                        value:'Messages non lus',
-                        href:pathRoute("/messages-non-lus"),
-                        controller:'messagesNonLus'
-                    },
+                        value:'Discussions',
+                        href:pathRoute("/discussions"),
+                        controller:'discussions'
+                    }
                 ]
             }
         ]
     },
     {
-        titre:'Journal',
+        titre:'Publications',
         icon:"fas fa-bell fa-fw",
         liens:[
             {
                 titre:'Journales et notifications:',
                 items:[
                     {
-                        value:'historiques',
-                        href:pathRoute("/historiques"),
-                        controller:'historiques'
+                        value:'Tous',
+                        href:pathRoute("/publications"),
+                        controller:'publications'
+                    },
+                    {
+                        value:'Evenement',
+                        href:pathRoute("/evenement"),
+                        controller:'evenement'
                     },
                     {
                         value:'Journal',
@@ -130,14 +130,14 @@ export class Dashboard {
     static async index(request, reply) {
         const user = request.session.get("user");
         if (user) {
-          return reply.view("templates/dashboard.ejs", { user,NAV_ITEMS });
+          return reply.template("templates/dashboard.ejs", { user,NAV_ITEMS });
         }
         return reply.redirect("/");
     }
     static async plaintes(request, reply) {
         const user=request.session.get("user")
         if(user){
-            return reply.view("templates/indexDashboard.ejs", { 
+            return reply.template("templates/indexDashboard.ejs", { 
                 user,
                 path:"dashboardContent/plaintes.ejs",
                 NAV_ITEMS,
@@ -152,13 +152,59 @@ export class Dashboard {
     static async membreDeComite(request, reply) {
         const user=request.session.get("user")
         if(user){
-            return reply.view("templates/indexDashboard.ejs", { 
+            return reply.template("templates/indexDashboard.ejs", { 
                 user,
                 path:"dashboardContent/membreDeComite.ejs",
                 NAV_ITEMS,
                 navActived:{
                     titre:'Utilisateurs',
                     value:'membre de comité'
+                }
+             });
+        }
+        return reply.redirect('/')
+    }
+    static async inboxMessage(request, reply) {
+        const user=request.session.get("user")
+        if(user){
+            return reply.template("templates/indexDashboard.ejs", { 
+                user,
+                path:"components/inbox/inbox.ejs",
+                NAV_ITEMS,
+                navActived:{
+                    titre:'Messages',
+                    value:'Inbox'
+                }
+             });
+        }
+        return reply.redirect('/')
+    }
+    static async discussions(request, reply) {
+        const user=request.session.get("user")
+        if(user){
+            return reply.template("templates/indexDashboard.ejs", { 
+                user,
+                path:"components/messages/discussions.ejs",
+                NAV_ITEMS,
+                navActived:{
+                    titre:'Messages',
+                    value:'Discussions'
+                }
+             });
+        }
+        return reply.redirect('/')
+    }
+    static async publications(request, reply){
+        const user=request.session.get("user")
+        if(user){
+            return reply.template("templates/indexDashboard.ejs", { 
+                ActivePublications:"active",
+                user,
+                path:"components/pub/tous.ejs",
+                NAV_ITEMS,
+                navActived:{
+                    titre:'Publications',
+                    value:'Tous'
                 }
              });
         }
